@@ -24,6 +24,7 @@ img {
 
 st.title("Image Processing Operations")
 st.caption("Step-by-step visualization")
+st.caption("This application takes a single uploaded image and applies a sequence of image processing operations using OpenCV. Each step transforms the same original image into a different processed version, such as grayscale conversion, resizing, blurring, edge detection, thresholding, histogram equalization, and rotation. The results are displayed one step at a time, allowing users to navigate through each transformation and download the processed image.")
 
 if "step" not in st.session_state:
     st.session_state.step = 0
