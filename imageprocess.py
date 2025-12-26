@@ -23,8 +23,7 @@ img {
 """, unsafe_allow_html=True)
 
 st.title("Image Processing Operations")
-st.caption("Step-by-step visualization")
-st.caption("This application takes a single uploaded image and applies a sequence of image processing operations using OpenCV. Each step transforms the same original image into a different processed version, such as grayscale conversion, resizing, blurring, edge detection, thresholding, histogram equalization, and rotation. The results are displayed one step at a time, allowing users to navigate through each transformation and download the processed image.")
+st.caption("A single image is uploaded and used as the input for all processing steps. Each time the Next button is clicked, a different image processing operation is applied to the same original image, generating a new processed output such as grayscale conversion, resizing, blurring, edge detection, thresholding, histogram equalization, or rotation. The application displays one processed image at a time, allowing users to navigate through the transformations step by step and download the currently displayed result.")
 
 if "step" not in st.session_state:
     st.session_state.step = 0
