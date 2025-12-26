@@ -22,7 +22,7 @@ img {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("📸 Image Processing Demo")
+st.title("Image Processing Demo")
 st.caption("Step-by-step visualization")
 
 
