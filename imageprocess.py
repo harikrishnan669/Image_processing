@@ -77,7 +77,7 @@ if uploaded_file:
 
     title, current_image = results[st.session_state.step]
 
-    st.subheader(f"{title}  (Step {st.session_state.step + 1} of {total_steps})")
+    st.subheader(f"{title}")
 
     st.image(current_image, use_container_width=True)
 
