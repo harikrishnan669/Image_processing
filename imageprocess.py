@@ -25,6 +25,8 @@ img {
 st.title("Image Processing Demo")
 st.caption("Step-by-step visualization")
 
+if "step" not in st.session_state:
+    st.session_state.step = 0
 
 uploaded_file = st.file_uploader(
     "Upload an image (JPG / PNG)",
@@ -56,24 +58,27 @@ if uploaded_file:
         ))
     ]
 
-    if "step" not in st.session_state:
-        st.session_state.step = 0
+    total_steps = len(results)
 
-    st.subheader(results[st.session_state.step][0])
+    def next_step():
+        st.session_state.step = (st.session_state.step + 1) % total_steps
+
+    def prev_step():
+        st.session_state.step = (st.session_state.step - 1) % total_steps
+    st.subheader(f"{results[st.session_state.step][0]}  "
+                 f"(Step {st.session_state.step + 1} of {total_steps})")
+
     st.image(
         results[st.session_state.step][1],
         use_container_width=True
     )
-
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button(" <-Previous"):
-            st.session_state.step = (st.session_state.step - 1) % len(results)
+        st.button("⬅ Previous", on_click=prev_step)
 
     with col2:
-        if st.button("Next-> "):
-            st.session_state.step = (st.session_state.step + 1) % len(results)
+        st.button("Next ➡", on_click=next_step)
 
 else:
     st.info("Upload an image to begin")
