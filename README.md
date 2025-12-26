@@ -52,7 +52,7 @@ The following operations are applied to the uploaded image:
 ```text
 image-processing-demo/
 │
-├── app.py
+├── imageprocess.py
 ├── requirements.txt
 └── README.md
 ```
