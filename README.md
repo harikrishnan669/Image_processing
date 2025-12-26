@@ -1,4 +1,4 @@
-# Image Processing Demo
+# Image Processing Operations
 
 An interactive **Streamlit web application** that demonstrates **basic image processing techniques** using **OpenCV**.
 Users can upload an image and view each processing step **one by one** using navigation buttons.
