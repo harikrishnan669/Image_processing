@@ -64,8 +64,8 @@ image-processing-demo/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/image-processing-demo.git
-cd image-processing-demo
+git clone https://github.com/harikrishnan669/Image_processing.git
+
 ```
 
 ### Install dependencies
