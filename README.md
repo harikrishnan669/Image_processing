@@ -1,4 +1,4 @@
-# Image Processing Demo
+# Image Processing Operations
 
 An interactive **Streamlit web application** that demonstrates **basic image processing techniques** using **OpenCV**.
 Users can upload an image and view each processing step **one by one** using navigation buttons.
@@ -52,7 +52,7 @@ The following operations are applied to the uploaded image:
 ```text
 image-processing-demo/
 │
-├── app.py
+├── imageprocess.py
 ├── requirements.txt
 └── README.md
 ```
@@ -64,8 +64,8 @@ image-processing-demo/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/image-processing-demo.git
-cd image-processing-demo
+git clone https://github.com/harikrishnan669/Image_processing.git
+
 ```
 
 ### Install dependencies
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 ### Run the application
 
 ```bash
-streamlit run app.py
+streamlit run imageprocess.py
 ```
 
 ---
