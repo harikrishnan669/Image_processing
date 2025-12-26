@@ -52,10 +52,10 @@ if uploaded_file:
         ("Original Image", image_rgb),
         ("Grayscale Image", gray),
         ("Resized Image", cv2.resize(image_rgb, (300, 300))),
-        ("Gaussian Blur", cv2.GaussianBlur(gray, (7, 7), 0)),
-        ("Edge Detection", cv2.Canny(gray, 100, 200)),
-        ("Thresholding", cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)[1]),
-        ("Histogram Equalization", cv2.equalizeHist(gray)),
+        ("Gaussian Blur Image", cv2.GaussianBlur(gray, (7, 7), 0)),
+        ("Edge Detection Image", cv2.Canny(gray, 100, 200)),
+        ("Thresholding Image", cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)[1]),
+        ("Histogram Equalization Image", cv2.equalizeHist(gray)),
         ("Rotated Image", cv2.warpAffine(
             image_rgb,
             cv2.getRotationMatrix2D(
