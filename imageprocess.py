@@ -22,7 +22,7 @@ img {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Image Processing Demo")
+st.title("Image Processing Operations")
 st.caption("Step-by-step visualization")
 
 if "step" not in st.session_state:
@@ -32,6 +32,14 @@ uploaded_file = st.file_uploader(
     "Upload an image (JPG / PNG)",
     type=["jpg", "jpeg", "png"]
 )
+
+def image_to_bytes(img):
+    if len(img.shape) == 2:  # Grayscale
+        success, buffer = cv2.imencode(".png", img)
+    else:  # RGB
+        img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+        success, buffer = cv2.imencode(".png", img_bgr)
+    return buffer.tobytes()
 
 if uploaded_file:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
@@ -65,13 +73,22 @@ if uploaded_file:
 
     def prev_step():
         st.session_state.step = (st.session_state.step - 1) % total_steps
-    st.subheader(f"{results[st.session_state.step][0]}  "
-                 f"(Step {st.session_state.step + 1} of {total_steps})")
 
-    st.image(
-        results[st.session_state.step][1],
-        use_container_width=True
+    title, current_image = results[st.session_state.step]
+
+    st.subheader(f"{title}  (Step {st.session_state.step + 1} of {total_steps})")
+
+    st.image(current_image, use_container_width=True)
+
+    image_bytes = image_to_bytes(current_image)
+
+    st.download_button(
+        label="Download Image",
+        data=image_bytes,
+        file_name=f"{title.replace(' ', '_').lower()}.png",
+        mime="image/png"
     )
+
     col1, col2 = st.columns(2)
 
     with col1:
